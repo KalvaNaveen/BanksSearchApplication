@@ -1,6 +1,7 @@
 {
   "name": "banks-search-application-v1",
   "version": "0.0.0",
+  "homepage": "https://kalvanaveen.github.io/BanksSearchApplication/",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
