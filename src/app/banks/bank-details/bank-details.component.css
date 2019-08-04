@@ -1,0 +1,103 @@
+
+.bank_detail--header{
+    display:flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+
+.bank_detail--subhead{
+    display:flex;
+    margin: auto;
+}
+
+.bank_detail--body{
+    display:flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-top: 4rem;
+    justify-content: space-evenly;
+    max-height: calc(100vh - 25vh);
+    overflow: auto;
+  
+}
+
+.bank_detail--card{
+  width: 400px;
+  margin:20px;
+  padding: 10px;
+  border:1px solid transparent;
+  border-radius:10px;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  position: relative;
+}
+
+.bank_detail--card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.bank_detail--subhead span{
+    font-size: 1.6rem;
+    padding: 0.3rem;
+}
+
+.bank_detail--card p,.bank_detail--card span{
+      font-size: 1.4rem;
+      font-weight: 500;
+       font-family: 'Roboto', sans-serif; 
+      
+      color: rgba(0,0,0,.7);;
+      line-height: 3.2rem;;
+}
+.bank_detail--card p span{
+    color: #43484be0;
+    margin-right: 1rem;  
+}
+h4{
+  margin: 0;
+  padding-left:.5rem;
+  font-size: 2rem;
+  font-weight: 500;
+  font-family: 'Lato', sans-serif;
+}
+
+pre{
+    display: inherit;
+    font-size: 1.7rem;
+}
+/* --------------------------
+horizontal Line CSS
+----------------------------*/
+hr {
+    border: 0;
+    height: 2px;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0),#b69021,  rgba(0, 0, 0, 0));
+}
+
+/* --------------------------
+favourite Icon CSS
+----------------------------*/
+.fav_icon-heart{
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin: 1rem;
+}
+.fav_icon-heart-f{
+   color:#997d09e6;
+}
+.fav_icon-heart-uf{
+    color: #b495587d;
+}
+
+/* --------------------------
+Back page link button 
+----------------------------*/
+a {
+  text-decoration: none;
+  color: #795b04;
+  font-size: 4rem;
+  font-weight: 900;
+  position: absolute;
+  left:40px;
+}

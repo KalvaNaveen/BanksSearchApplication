@@ -1,0 +1,82 @@
+.header_table{
+  max-height: calc(100vh - 27vh);
+  overflow: auto;
+  position: relative;
+}
+
+/*-----------------------------
+ TABLE STYLE CHANGES
+ ---------------------------- */
+
+table {
+    width: 100%;
+  }
+  th{
+    position: sticky;
+    top: 0;
+    background-color: whitesmoke;
+    z-index: 1;
+  }
+  .mat-form-field {
+    width: 280px;
+    margin: 0 0 0 65px;
+    font-size: 2rem;
+    margin-top: 1%
+  }
+   
+  .footer_container{
+    position: sticky;
+    bottom: 0;
+    background-color: white;
+    z-index: 1;
+  }
+
+ .mat-header-cell{
+   width: 250px;
+ }
+
+ a,a:active,a:visited{
+   text-decoration: none;
+   color:#ab6606;
+ }
+
+ .mat-checkbox{
+    padding-left: 15px;
+ }
+ i{
+  font-size: 1.8rem;
+  margin: 0 .8rem 0 .5rem;
+ }
+
+/*-----------------------------
+ Loader Position & Animation
+ ---------------------------- */
+
+ .isLoading{
+  font-size: 4rem;
+  position: fixed;
+  top: 12vh;
+  right: 10vh;
+  z-index: 1;
+  margin: 0px;
+  padding: 0px;
+  color: #8e8a85ab;
+ }
+ .isLoading i{
+  font-size: 4rem;
+  position: absolute;
+  top: 6px;
+  left: -50px;
+ }
+ .isLoading_spin{
+  -webkit-animation: rotation .5s infinite linear;
+  animation: rotation 1.2s infinite linear;
+ }
+ @keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+}

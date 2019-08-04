@@ -1,0 +1,7 @@
+.mat-toolbar.mat-primary{
+    background: #956e39;
+    background-image: linear-gradient(156deg, black, transparent);
+    color: #fff;
+    font-family: cursive;
+    font-size: 3rem;
+}

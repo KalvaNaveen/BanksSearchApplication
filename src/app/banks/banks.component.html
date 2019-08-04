@@ -1,0 +1,79 @@
+<!-- User Controls -->
+<mat-form-field style="margin: 0">
+    <mat-select placeholder="Select City" [(ngModel)]="selectedCity" (ngModelChange)="getBanks()"  name="city">
+        <mat-option *ngFor="let city of cities" [value]="city">
+          {{city}}
+        </mat-option>
+    </mat-select>
+   
+</mat-form-field>
+<mat-form-field  >
+    <mat-label><i class="material-icons" >search</i>Search Bank</mat-label>
+           <input autocomplete="off" matInput (keyup)="applyFilter($event.target.value)">
+</mat-form-field>
+
+<!-- Table Which is represents all banks list -->
+ <div   class="header_table mat-elevation-z8">
+  <table mat-table [dataSource]="dataSource" matSort>
+    
+     <!-- Checkbox Column -->
+   <ng-container matColumnDef="select">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header style="width: 8%">Favourite</th>
+  <td mat-cell *matCellDef="let element">
+    
+    <mat-checkbox (click)="$event.stopPropagation()" 
+        (change)="$event ? selectRow($event,element) : null"
+                  [checked]="selection.isSelected(element)==true"
+                  [(ngModel)]="element.favourite"
+               >
+    </mat-checkbox>
+  </td>
+</ng-container>
+      <!-- Bank Name Column -->
+    <ng-container matColumnDef="bank_name"> 
+      <th mat-header-cell *matHeaderCellDef  mat-sort-header style="width: 24%"> Bank Name</th>
+      <td mat-cell *matCellDef="let element"><a [routerLink]="['/banks', element.bank_id]" >{{element.bank_name}}<i class="material-icons">launch</i></a></td>
+    </ng-container>
+  
+    <!-- Branch Column -->
+    <ng-container matColumnDef="branch">
+      <th mat-header-cell *matHeaderCellDef  mat-sort-header style="width:20%"> Branch </th>
+      <td mat-cell *matCellDef="let element"> {{element.branch}} </td>
+    </ng-container>
+  
+    <!-- IFSC Column -->
+    <ng-container matColumnDef="ifsc">
+      <th mat-header-cell *matHeaderCellDef  mat-sort-header style="width: 10%"> IFSC Code </th>
+      <td mat-cell *matCellDef="let element"> {{element.ifsc}} </td>
+    </ng-container>
+
+    <!-- Address Column -->
+    <ng-container matColumnDef="address">
+        <th mat-header-cell *matHeaderCellDef  mat-sort-header style="width: 25%"> Address </th>
+        <td mat-cell *matCellDef="let element"> {{element.address}} </td>
+      </ng-container>
+      <!-- City Column -->
+    <ng-container matColumnDef="city">
+        <th mat-header-cell *matHeaderCellDef  mat-sort-header style="width: 12%"> City </th>
+        <td mat-cell *matCellDef="let element"> {{element.city}} </td>
+      </ng-container>
+      <!-- -- District Column
+    <ng-container matColumnDef="district">
+        <th mat-header-cell *matHeaderCellDef  mat-sort-header> District </th>
+        <td mat-cell *matCellDef="let element"> {{element.district}} </td>
+      </ng-container>
+      --  State Column 
+    <ng-container matColumnDef="state">
+        <th mat-header-cell *matHeaderCellDef  mat-sort-header> State </th>
+        <td mat-cell *matCellDef="let element"> {{element.state}} </td>
+      </ng-container> -->
+  
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+  <!-- Table Paging -->
+  <mat-paginator class="footer_container" [pageSizeOptions]="[10, 20, 30, 40, 50]" showFirstLastButtons></mat-paginator>
+  <!-- DATA LOAD SPINNER -->
+  <span *ngIf="isLoading" class="isLoading"><i class="material-icons isLoading_spin">autorenew</i>Loading...</span>
+</div>
+

@@ -1,0 +1,21 @@
+<!---- Bank Details and along with common Fields like CITY, STATE & DISTRICT   .................. -->
+<div class="bank_detail--header">
+       <div class="bank_detail--subhead" style="margin-left: 2%;"><span>Bank Name: </span><h4>{{banks[0].bank_name}}</h4></div> 
+       <div class="bank_detail--subhead"><span>City: </span><h4>{{banks[0].city}}</h4></div> 
+       <div class="bank_detail--subhead"><span>District:</span><h4>{{banks[0].district}}</h4></div>  
+       <div class="bank_detail--subhead"><span>State: </span><h4>{{banks[0].state}}</h4></div> 
+</div>
+<!---- Horizontal Line break .................. -->
+<hr>
+<!---- Banks List Page router link.............. -->
+<a [routerLink]="['/banks']">&larr;</a>
+<!---- Branch Details in Cards Style............ -->
+<div class="bank_detail--body">
+    <div class='bank_detail--card' *ngFor="let bank of banks">
+       <i *ngIf="bank.favourite" class="material-icons fav_icon-heart fav_icon-heart-f">favorite</i>
+       <i  *ngIf="!bank.favourite" class="material-icons fav_icon-heart fav_icon-heart-uf">favorite_border</i>
+       <p><span><pre>Branch   </pre></span>:&nbsp;{{bank.branch}}</p>
+       <p><span><pre>IFSC       </pre></span>:&nbsp;{{bank.ifsc}}</p>
+       <p style="line-height:2.4rem"><span><pre>Address </pre></span>:&nbsp;{{bank.address}}</p>
+        </div>
+</div>
