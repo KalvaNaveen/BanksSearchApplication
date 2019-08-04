@@ -24,23 +24,24 @@ const CACHE_BANK_KEY ='bankDada',CACHE_CITY_KEY = 'City';
 export class BanksComponent implements OnInit {
 
   cities=cities;
-  selectedCity='MUMBAI';
-  isLoading=false;
-
+  selectedCity='NEW DELHI';
+  isLoading=false;  
   displayedColumns: string[] = ['select','bank_name', 'branch', 'ifsc','city','address' /*,'district','state'*/];
   dataSource: MatTableDataSource<BanksList>;
-  constructor(private api: ApiService) {}
+  constructor(private api: ApiService) {
+  }
 
    // On Initializtion time( Browser load or Application start) it will check localstorage first and then it calls to APISERVICE...................................
   ngOnInit() {
     let city = localStorage[CACHE_CITY_KEY];
     let banks = JSON.parse(localStorage[CACHE_BANK_KEY]||'[]');
-    if(city !== null && banks !== null){
+    if(banks.length >0){
       this.selectedCity =  city;
       this.LoadBankDetails(banks);
     }
     else{
       this.getBanks();
+
     }
   }
 
