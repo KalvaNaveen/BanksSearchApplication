@@ -28,6 +28,5 @@ export class RequestCache  {
         this.cache.delete(expiredEntry.url);
       }
     });
-    console.log(this.cache);
   }
 }

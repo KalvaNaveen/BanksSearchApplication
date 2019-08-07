@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpEvent, HttpRequest, HttpResponse, HttpInterceptor, HttpHandler } from '@angular/common/http';
 
 import { Observable,of} from 'rxjs';
-import { startWith, tap } from 'rxjs/operators';
+import { tap } from 'rxjs/operators';
 import { RequestCache } from '../service/requestCache.service';
 
 @Injectable()
