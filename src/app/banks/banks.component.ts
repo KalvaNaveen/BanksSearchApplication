@@ -4,7 +4,7 @@ import {MatPaginator} from '@angular/material/paginator';
 import {MatSort} from '@angular/material/sort';
 import {SelectionModel} from '@angular/cdk/collections';
 import {cities} from '../cities';
-import {ApiService}from '../api.service'
+import {ApiService} from '../service/api.service';
 
 export interface BanksList {
   bank_name: string;
@@ -34,7 +34,7 @@ export class BanksComponent implements OnInit {
    // On Initializtion time( Browser load or Application start) it will check localstorage first and then it calls to APISERVICE...................................
   ngOnInit() {
     let city = localStorage[CACHE_CITY_KEY];
-    let banks = JSON.parse(localStorage[CACHE_BANK_KEY]||'[]');
+    let banks = JSON.parse(localStorage[CACHE_BANK_KEY]!=='undefined'?localStorage[CACHE_BANK_KEY]:'[]');
     if(banks.length >0){
       this.selectedCity =  city;
       this.LoadBankDetails(banks);
@@ -48,7 +48,7 @@ export class BanksComponent implements OnInit {
   // To call API using APISERVICE AND HTTP...................................
   getBanks () {
     this.isLoading = true;
-    this.api.fetchBanksData(this.selectedCity).subscribe(fetchedData=>this.LoadBankDetails(fetchedData));
+    this.api.fetchBanksData(this.selectedCity).subscribe(fetchedData=>{this.LoadBankDetails(fetchedData)});
   }
   // To Load table after fetching data using API or Local Storage & its a Generic Function...................................
   LoadBankDetails(banks){

@@ -9,7 +9,10 @@ import {MatInputModule,MatSelectModule,MatToolbarModule,MatTableModule,MatPagina
 import { HeaderComponent } from './header/header.component';
 import {CdkTableModule} from '@angular/cdk/table';
 import { BankDetailsComponent } from './banks/bank-details/bank-details.component';
-import {HttpClientModule} from '@angular/common/http';
+import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
+import {APIInterceptorService} from './service/api-interceptor.service';
+import {RequestCache} from './service/requestCache.service';
+
 const appRoutes: Routes = [
   { path: 'banks/:bank_id', component: BankDetailsComponent },
   {
@@ -43,7 +46,9 @@ const appRoutes: Routes = [
     CdkTableModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [
+    RequestCache,
+    { provide: HTTP_INTERCEPTORS, useClass: APIInterceptorService, multi: true }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
